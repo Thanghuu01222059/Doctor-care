@@ -15,6 +15,14 @@ let getManageDoctor = async (req, res) => {
     });
 };
 
+let getManageSupporter = async (req, res) => {
+    let supporters = await userService.getInfoSupporters();
+    return res.render("main/users/admins/manageSupporter.ejs", {
+        user: req.user,
+        supporters: supporters,
+    });
+};//thêm
+
 let getManageClinic = async (req, res) => {
     let clinics = await homeService.getClinics();
     return res.render("main/users/admins/manageClinic.ejs", {
@@ -31,7 +39,21 @@ let getCreateDoctor = async (req, res) => {
         clinics: clinics,
         specializations: specializations
     });
+
 };
+
+let getCreateSupporter = async (req, res) => {
+    let clinics = await homeService.getClinics();
+    let specializations = await homeService.getSpecializations();
+    return res.render("main/users/admins/createSupporter.ejs", {
+        user: req.user,
+        clinics: clinics,
+        specializations: specializations
+    });
+};//thêm
+
+
+
 let postCreateDoctor = async (req, res) => {
     let doctor = {
         'name': req.body.name,
@@ -46,12 +68,34 @@ let postCreateDoctor = async (req, res) => {
     };
     try {
         await userService.createDoctor(doctor);
-        return res.status(200).json({ message: 'success' })
+        return res.status(200).json({ message: 'Thành công' })
     } catch (err) {
         console.log(err);
         return res.status(500).json({ error: err })
     }
 };
+
+
+let postCreateSupporter = async (req, res) => {
+    let doctor = {
+        'name': req.body.name,
+        'phone': req.body.phone,
+        'email': req.body.email,
+        'password': req.body.password,
+        'clinicId': req.body.clinic,
+        'specializationId': req.body.specialization,
+        'address': req.body.address,
+        'avatar': 'supporter.jpg',
+        'description': req.body.description
+    };
+    try {
+        await userService.createSupporter(supporter);
+        return res.status(200).json({ message: 'Thành công' })
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({ error: err })
+    }
+};//thêm
 
 let getCreateClinic = (req, res) => {
     return res.render("main/users/admins/createClinic.ejs", {
@@ -194,7 +238,7 @@ let deleteDoctorById = async (req, res) => {
     try {
         let doctor = await doctorService.deleteDoctorById(req.body.id);
         return res.status(200).json({
-            'message': 'success'
+            'message': 'thành công'
         })
 
     } catch (e) {
@@ -228,13 +272,15 @@ let putUpdateDoctorWithoutFile = async (req, res) => {
         };
         await doctorService.updateDoctorInfo(item);
         return res.status(200).json({
-            message: 'update info doctor successful'
+            message: 'cập nhật thông tin bác sĩ thành công'
         });
     } catch (e) {
         console.log(e)
         return res.status(500).json(e);
     }
 };
+
+
 
 let putUpdateDoctor = (req, res) => {
     imageDoctorUploadFile(req, res, async (err) => {
@@ -402,19 +448,26 @@ let getInfoStatistical = async (req, res) => {
 
 module.exports = {
     getManageDoctor: getManageDoctor,
+    getEditDoctor: getEditDoctor,
     getCreateDoctor: getCreateDoctor,
+    
     getEditClinic: getEditClinic,
     getManageClinic: getManageClinic,
     getCreateClinic: getCreateClinic,
+
     getSpecializationPage: getSpecializationPage,
-    getEditDoctor: getEditDoctor,
+    
     getSupporterPage: getSupporterPage,
+
     getManageBotPage: getManageBotPage,
     getEditPost: getEditPost,
     getManageCreateScheduleForDoctorsPage: getManageCreateScheduleForDoctorsPage,
     getInfoStatistical: getInfoStatistical,
 
     postCreateDoctor: postCreateDoctor,
+    getManageSupporter: getManageSupporter, //thêm
+    postCreateSupporter: postCreateSupporter, //thêm
+    getCreateSupporter: getCreateSupporter, //thêm
     postCreateClinic: postCreateClinic,
     postCreateClinicWithoutFile: postCreateClinicWithoutFile,
 
@@ -427,5 +480,5 @@ module.exports = {
     deleteClinicById: deleteClinicById,
     deleteDoctorById: deleteDoctorById,
     deleteSpecializationById: deleteSpecializationById,
-    deletePostById: deletePostById
+    deletePostById: deletePostById,
 };

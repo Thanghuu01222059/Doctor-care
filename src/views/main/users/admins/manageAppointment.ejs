@@ -1,21 +1,24 @@
 <% extend("master.ejs") %>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">List of appointment appointments</h1>
-
+    <!-- <h1 class="h3 mb-0 text-gray-800">List of appointment appointments</h1> -->
+    <h1 class="h3 mb-0 text-gray-800">Danh sách các cuộc hẹn</h1>
 </div>
 
 <!-- Content Row -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">List of appointment appointments</h6>
+        <!-- <h6 class="m-0 font-weight-bold text-primary">List of appointment appointments</h6> -->
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách các cuộc hẹn</h6>
         <div class="my-3">
-            <label for="dateDoctorAppointment">Time: </label>
+            <!-- <label for="dateDoctorAppointment">Time: </label> -->
+            <label for="dateDoctorAppointment">Thời gian: </label>
             <form method="GET" action="/doctor/manage/appointment">
                 <div class="form-row">
                     <input id="dateDoctorAppointment" name="dateDoctorAppointment" value="<%= date %>" type="text"
                            class="form-control col-4 mr-4">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <!-- <button class="btn btn-primary" type="submit">Search</button> -->
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
                 </div>
 
             </form>
@@ -25,6 +28,11 @@
         <div class="table-responsive">
             <table class="table table-bordered">
                 <tr>
+                    <!-- <th>Time</th>
+                    <th>No</th>
+                    <th> Name</th>
+                    <th>Gender</th>
+                    <th> Action</th> -->
                     <th>Time</th>
                     <th>No</th>
                     <th> Name</th>

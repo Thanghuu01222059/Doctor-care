@@ -1,15 +1,15 @@
 <% extend("master.ejs") %>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Manage specialists</h1>
+    <h1 class="h3 mb-0 text-gray-800">Quản lý chuyên khoa</h1>
     <a href="/supporter/manage/specialization/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus-circle fa-sm text-white-50"></i>Add new</a>
+                class="fas fa-plus-circle fa-sm text-white-50"></i>Thêm mới</a>
 </div>
 
 <!-- Content Row -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">List of specialists</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách chuyên khoa</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -17,8 +17,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Actions</th>
+                    <th>Tên</th>
+                    <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,9 +27,9 @@
                         <td> <%= spe.id %></td>
                         <td><%= spe.name %></td>
                         <td class="">
-                            <a class="info-specialization"  data-specialization-id="<%= spe.id %>" href="#" title="View info"><i class="fas fa-info-circle"></i></a>
-                            <a class=""  data-specialization-id="<%= spe.id %>" href="#" title="Edit"><i class="fas fa-pen-square mx-3"></i></a>
-                            <a class="delete-specialization" data-specialization-id="<%= spe.id %>" href="#" title="Delete"><i class="fas fa-trash"></i></a>
+                            <a class="info-specialization"  data-specialization-id="<%= spe.id %>" href="#" title="Thông tin"><i class="fas fa-info-circle"></i></a>
+                            <a class=""  data-specialization-id="<%= spe.id %>" href="#" title="Sửa"><i class="fas fa-pen-square mx-3"></i></a>
+                            <a class="delete-specialization" data-specialization-id="<%= spe.id %>" href="#" title="Xóa"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 <% }) %>

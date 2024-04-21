@@ -28,6 +28,24 @@ let createDoctor = (doctor) => {
     }));
 };
 
+let createSupporter = (supporter) => {
+    supporter.roleId = 2;
+    supporter.password = bcrypt.hashSync(supporter.password, salt);
+    return new Promise((async (resolve, reject) => {
+        let newSupporter = await db.User.create(supporter);
+        let item = {
+            doctorId: newSupporter.id,
+            clinicId: supporter.clinicId,
+            specializationId: supporter.specializationId
+        };
+        await db.Supporter_User.create(item);
+
+        //create supporter elastic
+
+        resolve(newSupporter)
+    }));
+};//thêm
+
 let getInfoDoctors = () => {
     return new Promise((async (resolve, reject) => {
         try {
@@ -271,9 +289,9 @@ let createAllDoctorsSchedule = () => {
                         })
                     )
                 }
-                resolve("Appointments are created successful (in 3 days). Please check your database (schedule table)")
+                resolve("Cuộc hẹn được tạo thành công (trong 3 ngày). Vui lòng kiểm tra cơ sở dữ liệu của bạn (bảng lịch trình)")
             }else {
-                resolve("Appointments are duplicated. Please check your database (schedule table)")
+                resolve("Các cuộc hẹn bị trùng lặp. Vui lòng kiểm tra cơ sở dữ liệu của bạn (bảng lịch trình)")
             }
         } catch (e) {
             reject(e);
@@ -296,6 +314,7 @@ let getAllDoctorsSchedule = () => {
 }
 module.exports = {
     createDoctor: createDoctor,
+    createSupporter: createSupporter, //thêm
     getInfoDoctors: getInfoDoctors,
     findUserByEmail: findUserByEmail,
     findUserById: findUserById,

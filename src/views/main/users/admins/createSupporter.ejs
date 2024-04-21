@@ -1,13 +1,13 @@
 <% extend("master.ejs") %>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Thêm bác sĩ mới</h1>
+    <h1 class="h3 mb-0 text-gray-800">Thêm tư vấn viên mới</h1>
 </div>
 
 <!-- Content Row -->
 <div class="row">
     <div class="col-10 mx-auto">
-        <form  id="formCreateNewDoctor">
+        <form  id="formCreateNewSupporter">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Họ tên</label>
@@ -58,7 +58,7 @@
                 <label for="description">Miêu tả</label>
                 <textarea id="description" class="form-control" name="description"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" id="createNewDoctor">Tạo</button>
+            <button type="submit" class="btn btn-primary" id="createNewSupporter">Tạo</button>
         </form>
     </div>
 </div>
@@ -67,6 +67,6 @@
 <script>
     $(document).ready(function() {
         $("div #featureManage").addClass('show');
-        $("div #featureManage").find($("#aManageDoctor")).addClass("active");
+        $("div #featureManage").find($("#aManageSupporter")).addClass("active"); //sửa
     })
 </script>

@@ -254,11 +254,35 @@ function createNewDoctor() {
             url: `${window.location.origin}/admin/doctor/create`,
             data: data,
             success: function(data) {
-                alert('Create a new doctor succeeds');
+                alert('Tạo bác sĩ mới thành công');
                 window.location.href = `${window.location.origin}/users/manage/doctor`;
             },
             error: function(error) {
-                alertify.error('An error occurs, please try again later!');
+                alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
+                console.log(error);
+            }
+        });
+    });
+}
+
+function createNewSupporter() {
+    $('#createNewDoctor').on('click', function(e) {
+        e.preventDefault();
+        let formData = new FormData($('form#formCreateNewSupporter')[0]);
+        let data = {};
+        for (let pair of formData.entries()) {
+            data[pair[0]] = pair[1]
+        }
+        $.ajax({
+            method: "POST",
+            url: `${window.location.origin}/admin/supporter/create`,
+            data: data,
+            success: function(data) {
+                alert('Tạo bác sĩ mới thành công');
+                window.location.href = `${window.location.origin}/users/manage/supporter`;
+            },
+            error: function(error) {
+                alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
                 console.log(error);
             }
         });
@@ -267,7 +291,7 @@ function createNewDoctor() {
 
 function deleteDoctorById() {
     $('.delete-doctor-info').on('click', function(e) {
-        if (!confirm('Delete this doctor?')) {
+        if (!confirm('Xóa bác sĩ này?')) {
             return
         }
 
@@ -279,10 +303,10 @@ function deleteDoctorById() {
             data: { id: id },
             success: function(data) {
                 node.closest("tr").remove();
-                alertify.success('Delete succeeds');
+                alertify.success('Xóa thành công');
             },
             error: function(err) {
-                alertify.error('An error occurs, please try again later!');
+                alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
                 console.log(err)
             }
         });
@@ -363,11 +387,11 @@ function handleUpdateDoctorNormal(formData) {
         contentType: false,
         processData: false,
         success: function(data) {
-            alert('Update succeeds');
+            alert('Cập nhật thành công');
             window.location.href = `${window.location.origin}/users/manage/doctor`;
         },
         error: function(error) {
-            alertify.error('An error occurs, please try again later!');
+            alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
             console.log(error);
         }
     });
@@ -379,15 +403,16 @@ function handleUpdateDoctorWithoutFile(data) {
         url: `${window.location.origin}/admin/doctor/update-without-file`,
         data: data,
         success: function(data) {
-            alert('Update succeeds');
+            alert('Cập nhật thành công');
             window.location.href = `${window.location.origin}/users/manage/doctor`;
         },
         error: function(error) {
-            alertify.error('An error occurs, please try again later!');
+            alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
             console.log(error);
         }
     });
 }
+
 
 function deleteSpecializationById() {
     $('.delete-specialization').on('click', function(e) {
@@ -457,8 +482,8 @@ function generateTablePostPagination(page) {
                         <td>${post.writerName}</td>
                         <td>${post.dateClient}</td>
                         <td class="">
-                            <a class=" " href="/supporter/post/edit/${post.id}" title="Edit info"><i class="fas fa-pen-square mx-3"></i></a>
-                            <a class="delete-post" href="#" data-post-id="${post.id}" title="Delete"><i class="fas fa-trash"></i></a>
+                            <a class=" " href="/supporter/post/edit/${post.id}" title="Sửa"><i class="fas fa-pen-square mx-3"></i></a>
+                            <a class="delete-post" href="#" data-post-id="${post.id}" title="Xóa"><i class="fas fa-trash"></i></a>
                         </td>
                    </tr>
                 `;
@@ -650,8 +675,8 @@ function loadNewPatientsForSupporter() {
                     <td> ${patient.email}     </td>
                     <td>${convertStringToDateClient(patient.updatedAt)}      </td>
                     <td> 
-                    <button type="button"  data-patient-id="${patient.id}" class="ml-3 btn btn-primary btn-new-patient-ok"> Receive</button>
-                    <button  type="button" data-patient-id="${patient.id}" class="ml-3 btn btn-danger btn-new-patient-cancel"> Cancel </button>
+                    <button type="button"  data-patient-id="${patient.id}" class="ml-3 btn btn-primary btn-new-patient-ok"> Nhận</button>
+                    <button  type="button" data-patient-id="${patient.id}" class="ml-3 btn btn-danger btn-new-patient-cancel"> Hủy </button>
                     </td>
                 </tr>
                 `;
@@ -665,8 +690,8 @@ function loadNewPatientsForSupporter() {
                     <td> ${patient.email}     </td>
                     <td> ${convertStringToDateClient(patient.updatedAt)}      </td>
                     <td> 
-                    <button  data-patient-id="${patient.id}"  class="ml-3 btn btn-warning btn-pending-patient">Confirm</button>
-                    <button  type="button" data-patient-id="${patient.id}" class="ml-3 btn btn-danger btn-pending-patient-cancel"> Cancel </button>
+                    <button  data-patient-id="${patient.id}"  class="ml-3 btn btn-warning btn-pending-patient">Xác nhận</button>
+                    <button  type="button" data-patient-id="${patient.id}" class="ml-3 btn btn-danger btn-pending-patient-cancel"> Hủy bỏ </button>
                     </td>
                 </tr>
                 `;
@@ -680,7 +705,7 @@ function loadNewPatientsForSupporter() {
                     <td> ${patient.email}     </td>
                     <td> ${convertStringToDateClient(patient.updatedAt)}     </td>
                     <td> 
-                    <button  type="button" data-patient-id="${patient.id}"  class="ml-3 btn btn-info btn-confirmed-patient"> Information</button>
+                    <button  type="button" data-patient-id="${patient.id}"  class="ml-3 btn btn-info btn-confirmed-patient"> Thông tin</button>
                     </td>
                 </tr>
                 `;
@@ -714,7 +739,7 @@ function loadNewPatientsForSupporter() {
 
 function handleBtnNewPatientOk() {
     $("#tableNewPatients").on("click", ".btn-new-patient-ok", function(e) {
-        if (!confirm('Do you want to confirm admission of this patient?')) {
+        if (!confirm('Bạn có muốn xác nhận việc nhập viện của bệnh nhân này?')) {
             return
         }
         let countNew = +$('#count-new').text();
@@ -805,8 +830,8 @@ function addNewRowTablePending(patient) {
                     <td> ${patient.email}     </td>
                     <td> ${convertStringToDateClient(patient.updatedAt)}     </td>
                     <td> 
-                    <button  data-patient-id="${patient.id}"  class="ml-3 btn btn-warning btn-pending-patient">Confirm</button>
-                    <button  type="button" data-patient-id="${patient.id}" class="ml-3 btn btn-danger btn-pending-patient-cancel"> Cancel </button>
+                    <button  data-patient-id="${patient.id}"  class="ml-3 btn btn-warning btn-pending-patient">Xác nhận</button>
+                    <button  type="button" data-patient-id="${patient.id}" class="ml-3 btn btn-danger btn-pending-patient-cancel"> Hủy bỏ </button>
                     </td>
                 </tr>
                
@@ -822,7 +847,7 @@ function addNewRowTableConfirmed(patient) {
                     <td> ${patient.email}     </td>
                     <td> ${convertStringToDateClient(patient.updatedAt)}     </td>
                     <td> 
-                    <button  type="button" data-patient-id="${patient.id}"  class="ml-3 btn btn-info btn-confirmed-patient"> Information</button>
+                    <button  type="button" data-patient-id="${patient.id}"  class="ml-3 btn btn-info btn-confirmed-patient"> Thông tin</button>
                     </td>
                 </tr>
                 `;
@@ -852,7 +877,7 @@ function convertStringToDateClient(string) {
 
 function handleAfterCallingPatient() {
     $('#btn-confirm-patient-done').on('click', function(e) {
-        if (!confirm('Have you phoned to confirm whether the patient has an appointment?')) {
+        if (!confirm('Bạn đã gọi điện để xác nhận xem bệnh nhân có hẹn chưa?')) {
             return;
         }
         let countPending = +$('#count-need').text();
@@ -1024,6 +1049,7 @@ function handleDoctorViewInfoPatient() {
                         $('#imageOldForms').append(html)
                     } else {
                         $('#imageOldForms').append(`<span>No information</span>`)
+                        // $('#imageOldForms').append(`<span>Không có thông tin</span>`)
                     }
                 }
 
@@ -1031,7 +1057,8 @@ function handleDoctorViewInfoPatient() {
             },
             error: function(err) {
                 console.log(error);
-                alertify.error('An error occurs, please try again later!');
+                // alertify.error('An error occurs, please try again later!');
+                alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!!');
             }
         });
     });
@@ -1079,7 +1106,8 @@ function showModalSendForms() {
             },
             error: function(error) {
                 console.log(error);
-                alertify.error('An error occurs, please try again later!');
+                // alertify.error('An error occurs, please try again later!');
+                alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
             }
         });
     });
@@ -1088,7 +1116,8 @@ function showModalSendForms() {
 function handleSendFormsForPatient() {
     $('#btnSendFilesForms').on("click", function(e) {
         if (!$('#filesSend').val()) {
-            alert("Please select files before sending!");
+            // alert("Please select files before sending!");
+            alert("Vui lòng chọn file trước khi gửi!");
             return;
         }
         $(this).prop('disabled', true);
@@ -1112,7 +1141,8 @@ function handleSendFormsForPatient() {
                 alertify.success('Sending remedies succeeds');
             },
             error: function(error) {
-                alertify.error('An error occurs, please try again later!');
+                // alertify.error('An error occurs, please try again later!');
+                alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
                 console.log(error);
             }
         });
@@ -1143,7 +1173,8 @@ function resetModal() {
 
 function doneComment() {
     $(".done-comment").on('click', function(e) {
-        if (confirm("Confirm save customer feedback?")) {
+        // if (confirm("Confirm save customer feedback?")) {
+        if (confirm("Xác nhận lưu phản hồi của khách hàng?")) {
             let commentId = $(this).attr('data-comment-id');
             node = this;
             $.ajax({
@@ -1153,10 +1184,12 @@ function doneComment() {
                 success: function(data) {
                     node.closest("tr").remove();
                     console.log(data);
-                    alertify.success('Save customer feedback successfully');
+                    // alertify.success('Save customer feedback successfully');
+                    alertify.success('Lưu phản hồi của khách hàng thành công');
                 },
                 error: function(error) {
-                    alertify.error('An error occurs, please try again later!');
+                    // alertify.error('An error occurs, please try again later!');
+                    alertify.error('Đã xảy ra lỗi, vui lòng thử lại sau!');
                     console.log(error);
                 }
             })
@@ -1176,18 +1209,19 @@ function statisticalAdmin(month) {
             $('#sumPost').text(data.posts.count);
 
             if (data.bestDoctor === '') {
-                $('#bestDoctor').text(`No information`);
+                $('#bestDoctor').text(`Không có thông tin`);
             } else {
                 $('#bestDoctor').text(`${data.bestDoctor.name} (${data.bestDoctor.count})`);
             }
             if (data.bestSupporter === '') {
-                $('#bestSupporter').text(`No information`);
+                $('#bestSupporter').text(`Không có thông tin`);
             } else {
                 $('#bestSupporter').text(`${data.bestSupporter.name} (${data.bestSupporter.count})`);
             }
         },
         error: function(error) {
-            alertify.error('An error occurred while getting statistical information, please try again later');
+            // alertify.error('An error occurred while getting statistical information, please try again later');
+            alertify.error('Đã xảy ra lỗi khi lấy thông tin thống kê, vui lòng thử lại sau');
             console.log(error);
         }
     })
@@ -1206,12 +1240,14 @@ $(document).ready(function(e) {
 
     let markdownIntroClinic = new SimpleMDE({
         element: document.getElementById("intro-clinic"),
-        placeholder: 'Introductory content...',
+        // placeholder: 'Introductory content...',
+        placeholder: 'Nội dung giới thiệu...',
         spellChecker: false
     });
     let markdownPost = new SimpleMDE({
         element: document.getElementById("contentMarkdown"),
-        placeholder: 'Post content...',
+        // placeholder: 'Post content...',
+        placeholder: 'Nội dung bài viết...',
         spellChecker: false
     });
     let converter = new showdown.Converter();
@@ -1241,10 +1277,13 @@ $(document).ready(function(e) {
     updateClinic(markdownIntroClinic, converter);
     showModalInfoClinic();
     showModalSettingUser();
+
     createNewDoctor();
     deleteDoctorById();
     showModalInfoDoctor();
     updateDoctor();
+
+
     deleteSpecializationById();
     showPostsForSupporter();
     deletePostById();

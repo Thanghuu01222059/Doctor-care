@@ -34,8 +34,11 @@ function getScheduleDoctorByDate() {
                         }
 
                         if (index === data.message.length - 1 && schedule.isDisable === true) {
+                            // html += `<div>
+                            //       There are no scheduled visits in the current timeframe. Please select the next scheduled exams.
+                            // </div>`
                             html += `<div>
-                                  There are no scheduled visits in the current timeframe. Please select the next scheduled exams.
+                                Không có chuyến thăm theo lịch trình trong khung thời gian hiện tại. Vui lòng chọn các kỳ thi đã lên lịch tiếp theo.
                             </div>`
                         }
 
@@ -43,16 +46,16 @@ function getScheduleDoctorByDate() {
                         moreInfo = `
                          <div class="d-flex flex-column">
                                     <div>
-                                                <span class="d-block mt-2">Choose <i class="fa fa-hand-o-up" aria-hidden="true"></i>  and book a free consultation</span>
+                                                <span class="d-block mt-2">Chọn <i class="fa fa-hand-o-up" aria-hidden="true"></i>  và đăng ký tư vấn miễn phí</span>
                                     </div>
                                     <div style="border-top: 1px solid #ccc"
                                          class="d-flex flex-column">
                                                             <span class="d-block pt-3 pb-1"
-                                                                  style="text-transform: uppercase">Address:</span>
+                                                                  style="text-transform: uppercase">Địa chỉ y tế:</span>
                                         <span class="d-block pb-1"
                                               style="border-bottom: 1px solid #ccc">${data.doctor.address}</span>
                                     </div>
-                                    <span class="d-block pt-2">Price: 50 USD</span>
+                                    <span class="d-block pt-2">Giá: 1.200.000 VND</span>
                                 </div>
                         
                         `;
@@ -60,7 +63,7 @@ function getScheduleDoctorByDate() {
                 } else {
                     html = `
                             <div>
-                                 Doctor "${data.doctor.name}" does not have an appointment on <b>${value}</b>. Please select the next examination schedule.
+                                 Bác sĩ "${data.doctor.name}" không có lịch hẹn vào <b>${value}</b>. Vui lòng chọn lịch kiểm tra khác.
                             </div>
                     `;
                     moreInfo = '';
@@ -110,8 +113,11 @@ function specializationGetScheduleDoctorByDate() {
                         }
 
                         if (index === data.message.length - 1 && schedule.isDisable === true) {
+                            // html += `<div>
+                            //        There are no scheduled visits in the current timeframe. Please select the next scheduled exams.
+                            // </div>`
                             html += `<div>
-                                   There are no scheduled visits in the current timeframe. Please select the next scheduled exams.
+                                Không có chuyến thăm theo lịch trình trong khung thời gian hiện tại. Vui lòng chọn các kỳ thi đã lên lịch tiếp theo.
                             </div>`
                         }
 
@@ -120,20 +126,20 @@ function specializationGetScheduleDoctorByDate() {
                     moreInfo = `
                         <div class="d-flex flex-column">
                                             <div>
-                                                <span class="d-block mt-2"> Choose <i class="fa fa-hand-o-up" aria-hidden="true"></i>  and book a free consultation</span>
+                                                <span class="d-block mt-2"> Chọn <i class="fa fa-hand-o-up" aria-hidden="true"></i>  và đăng ký tư vấn miễn phí</span>
                                             </div>
                                             <div style="border-top: 1px solid #ccc" class="d-flex flex-column">
-                                                <span class="d-block pt-3 pb-1" style="text-transform: uppercase">Address:</span>
+                                                <span class="d-block pt-3 pb-1" style="text-transform: uppercase">Địa chỉ y tế:</span>
                                                 <span class="d-block pb-1" style="border-bottom: 1px solid #ccc">${data.doctor.address}</span>
                                             </div>
-                                            <span class="d-block pt-2">Price: 50 USD</span>
+                                            <span class="d-block pt-2">Giá: 1.200.000 VND</span>
                          </div>
                     `;
                 } else {
                     html = `
                             <div class="no-schedule">
                                
-                                 Doctor "${data.doctor.name}" does not have an appointment on <b>${value}</b>. Please select the next examination schedule.
+                                 Doctor "${data.doctor.name}" không có lịch hẹn vào <b>${value}</b>. Vui lòng chọn lịch kiểm tra khác.
 
                             </div>
                     `;
@@ -594,7 +600,7 @@ function handleSearchHomepage() {
                     data.specializations.forEach((specialization) => {
                         html += `
                          <div class="child-info">
-                                <a href="detail/specialization/${specialization.id}">Specialist - ${specialization.name}</a>
+                                <a href="detail/specialization/${specialization.id}">Specialist  - ${specialization.name}</a>
                         </div>
                         `;
                     });

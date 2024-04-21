@@ -175,6 +175,8 @@ let postDoneComment = async (req, res) => {
         return res.status(500).json(e);
     }
 };
+
+
 module.exports = {
     getNewPatients: getNewPatients,
     getManagePosts: getManagePosts,
@@ -186,5 +188,5 @@ module.exports = {
     postChangeStatusPatient: postChangeStatusPatient,
     getManageCustomersPage: getManageCustomersPage,
     getLogsPatient: getLogsPatient,
-    postDoneComment: postDoneComment
+    postDoneComment: postDoneComment,
 };

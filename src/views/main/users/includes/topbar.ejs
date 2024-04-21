@@ -38,10 +38,10 @@
             <div class="modal-header">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Account info</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin tài khoản</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Change password</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Thay đổi mật khẩu</a>
                     </li>
                 </ul>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -58,46 +58,46 @@
                                        value="<%= user.email %>">
                             </div>
                             <div class="form-group col-6">
-                                <label class="col-form-label text-label" for="nameUser">Display name</label>
+                                <label class="col-form-label text-label" for="nameUser">Tên hiển thị</label>
                                 <input type="text" class="form-control" id="nameUser" name="nameUser"
                                        value="<%= user.name %>">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-6">
-                                <label class="col-form-label text-label" for="phoneUser">Phone number</label>
+                                <label class="col-form-label text-label" for="phoneUser">Số điện thoại</label>
                                 <input type="text" class="form-control" id="phoneUser" name="phoneUser"
                                        value="<%= user.phone %>">
                             </div>
                             <div class="form-group col-6">
-                                <label class="col-form-label text-label" for="gender">Gender</label>
+                                <label class="col-form-label text-label" for="gender">Giới tính</label>
                                 <div class="form-control">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="male" value="male" <% if(user.gender === 'male') { %>  checked <%}%> >
-                                        <label class="form-check-label" for="male">Male</label>
+                                        <label class="form-check-label" for="male">Nam</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" id="female" value="female" <% if(user.gender === 'female') { %>  checked <%}%>>
-                                        <label class="form-check-label" for="female">Female</label>
+                                        <label class="form-check-label" for="female">Nữ</label>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-form-label text-label" for="addressUser">Address</label>
-                            <input type="text" class="form-control" id="addressUser" name="addressUser" placeholder="Address"
+                            <label class="col-form-label text-label" for="addressUser">Địa chỉ</label>
+                            <input type="text" class="form-control" id="addressUser" name="addressUser" placeholder="Địa chỉ"
                                    value="<%= user.address %>">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-6">
-                                <label class="col-form-label text-label" for="descriptionUser">Description</label>
+                                <label class="col-form-label text-label" for="descriptionUser">Miêu tả</label>
                                 <textarea class="form-control" name="descriptionUser" id="descriptionUser"><%= user.description %></textarea>
                             </div>
                             <div class="form-group col-6 d-flex flex-row">
                                 <div class="d-flex flex-column">
-                                    <label class="col-form-label text-label" >Avatar</label>
-                                    <label  for="update-avatar" class="lb-update-image">Update avatar</label>
+                                    <label class="col-form-label text-label" >Ảnh đại diện</label>
+                                    <label  for="update-avatar" class="lb-update-image">Cập nhật ảnh đại diện</label>
                                     <input id="update-avatar" class="d-none" type="file" accept="image/*" onchange="loadImageUserSetting(event)">
                                 </div>
                                 <img class="img-user-setting ml-4"  id="img-user-setting" src="/images/users/<%= user.avatar%>">
@@ -105,30 +105,30 @@
                         </div>
                         <hr>
                         <div class="d-flex justify-content-end mr-3">
-                            <button type="button" class="btn btn-primary" id="updateInfoUserSetting"> Update </button>
+                            <button type="button" class="btn btn-primary" id="updateInfoUserSetting"> Cập Nhật </button>
                             <button type="button" class="btn btn-secondary ml-3" data-dismiss="modal">OK</button>
                         </div>
                     </div>
                     <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
                         <div class="form-group col-6 mx-auto">
-                            <label class="col-form-label text-label" for="oldPassword">Current password</label>
-                            <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="Current password">
+                            <label class="col-form-label text-label" for="oldPassword">Mật khẩu hiện tại</label>
+                            <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="Mật khẩu hiện tại">
                         </div>
 
                         <div class="form-group col-6 mx-auto">
-                            <label class="col-form-label text-label" for="newPassword">New password</label>
-                            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New password" >
+                            <label class="col-form-label text-label" for="newPassword">Mật khẩu mới</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Mật khẩu mới" >
                         </div>
 
                         <div class="form-group col-6 mx-auto">
-                            <label class="col-form-label text-label" for="confirmPassword">Confirm new password</label>
-                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password">
+                            <label class="col-form-label text-label" for="confirmPassword">Xác nhận mật khẩu mới</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Xác nhận mật khẩu mới">
                         </div>
 
                         <hr>
                         <div class="d-flex justify-content-end mr-3">
-                            <button type="button" class="btn btn-primary" id="updatePasswordUserSetting"> Update </button>
+                            <button type="button" class="" id="updatePasswordUserSetting"> Cập nhật </button>
                             <button type="button" class="btn btn-secondary ml-3" data-dismiss="modal">OK</button>
                         </div>
                     </div>

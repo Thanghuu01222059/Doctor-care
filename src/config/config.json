@@ -2,7 +2,7 @@
     "development": {
         "username": "root",
         "password": null,
-        "database": "aaa",
+        "database": "doctorcare",
         "host": "localhost",
         "dialect": "mysql",
         "operatorsAliases": 0,

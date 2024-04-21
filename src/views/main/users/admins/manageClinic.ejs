@@ -1,24 +1,32 @@
 <% extend("master.ejs") %>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Manage Clinics</h1>
+    <!-- <h1 class="h3 mb-0 text-gray-800">Manage Clinics</h1>
     <a href="/users/manage/clinic/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus-circle fa-sm text-white-50"></i> Add new</a>
+                class="fas fa-plus-circle fa-sm text-white-50"></i> Add new</a> -->
+    <h1 class="h3 mb-0 text-gray-800">Quản lý phòng khám</h1>
+    <a href="/users/manage/clinic/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-plus-circle fa-sm text-white-50"></i> Thêm mới</a>
 </div>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">List of clinics</h6>
+        <!-- <h6 class="m-0 font-weight-bold text-primary">List of clinics</h6> -->
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách phòng khám</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="tableManageClinic" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th>
                     <th>Name</th>
                     <th>Address</th>
-                    <th>Actions</th>
+                    <th>Actions</th> -->
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,13 +36,20 @@
                         <td><%= clinic.name %></td>
                         <td><%= clinic.address %></td>
                         <td class="">
-                            <a class="info-specific-clinic" data-clinic-id="<%= clinic.id %>" href="#"
+                            <!-- <a class="info-specific-clinic" data-clinic-id="<%= clinic.id %>" href="#"
                                title="Info"><i class="fas fa-info-circle"></i></a>
                             <a class="edit-specific-clinic" data-clinic-id="<%= clinic.id %>"
                                href="/users/clinic/edit/<%= clinic.id %>"
                                title="Edit"><i class="fas fa-pen-square mx-3"></i></a>
                             <a class="delete-specific-clinic" data-clinic-id="<%= clinic.id %>" href="#" title="Delete"><i
-                                        class="fas fa-trash"></i></a>
+                                        class="fas fa-trash"></i></a> -->
+                            <a class="info-specific-clinic" data-clinic-id="<%= clinic.id %>" href="#"
+                               title="Thông tin"><i class="fas fa-info-circle"></i></a>
+                            <a class="edit-specific-clinic" data-clinic-id="<%= clinic.id %>"
+                               href="/users/clinic/edit/<%= clinic.id %>"
+                               title="Sửa"><i class="fas fa-pen-square mx-3"></i></a>
+                            <a class="delete-specific-clinic" data-clinic-id="<%= clinic.id %>" href="#" title="Xóa"><i
+                                        class="fas fa-trash"></i></a>           
                         </td>
                     </tr>
                 <% }) %>
@@ -49,7 +64,8 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Clinic information</h5>
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Clinic information</h5> -->
+                <h5 class="modal-title" id="exampleModalLabel">Thông tin phòng khám</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -57,7 +73,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="form-group col-7">
                                 <label for="name" class="col-form-label text-label">Name</label>
                                 <input type="text" class="form-control" id="name" disabled>
@@ -73,6 +89,24 @@
                         </div>
                         <div class="form-group">
                             <label class="col-form-label text-label"> Cover Image :</label>
+                            <div id="imageClinic"></div>
+                        </div> -->
+                        <div class="form-row">
+                            <div class="form-group col-7">
+                                <label for="name" class="col-form-label text-label">Tên</label>
+                                <input type="text" class="form-control" id="name" disabled>
+                            </div>
+                            <div class="form-group col-5">
+                                <label for="phone" class="col-form-label text-label">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phone" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-form-label text-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="address" name="address" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label text-label"> Ảnh bìa :</label>
                             <div id="imageClinic"></div>
                         </div>
 

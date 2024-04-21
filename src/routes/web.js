@@ -104,8 +104,15 @@ let initRoutes = (app) => {
 
     router.get('/users/manage/doctor', auth.checkLoggedIn, admin.getManageDoctor);
     router.get('/users/manage/doctor/create', auth.checkLoggedIn, admin.getCreateDoctor);
+
+    router.get('/users/manage/supporter', auth.checkLoggedIn, admin.getManageSupporter);//thêm
+    router.get('/users/manage/supporter/create', auth.checkLoggedIn, admin.getCreateSupporter);//thêm
+
     router.post('/admin/doctor/create', auth.checkLoggedIn, admin.postCreateDoctor);
     router.get('/users/doctor/edit/:id', auth.checkLoggedIn, admin.getEditDoctor);
+
+    router.post('/admin/supporter/create', auth.checkLoggedIn, admin.postCreateDoctor);//thêm
+
     router.put('/admin/doctor/update-without-file', auth.checkLoggedIn, admin.putUpdateDoctorWithoutFile);
     router.put('/admin/doctor/update', auth.checkLoggedIn, admin.putUpdateDoctor);
 
@@ -142,12 +149,14 @@ let initRoutes = (app) => {
     router.post('/supporter/get-logs-patient', auth.checkLoggedIn, supporter.getLogsPatient);
     router.post('/supporter/done-comment', auth.checkLoggedIn, supporter.postDoneComment);
 
+
     router.post('/api/get-info-doctor-by-id', doctor.getInfoDoctorById);
     router.post('/api/get-info-clinic-by-id', clinic.getInfoClinicById);
     router.post('/api/get-detail-patient-by-id', home.getDetailPatientBooking);
 
     router.delete('/admin/delete/clinic', auth.checkLoggedIn, admin.deleteClinicById);
     router.delete('/admin/delete/doctor', auth.checkLoggedIn, admin.deleteDoctorById);
+
     router.delete('/admin/delete/specialization', auth.checkLoggedIn, admin.deleteSpecializationById);
     router.delete('/admin/delete/post', auth.checkLoggedIn, admin.deletePostById);
 

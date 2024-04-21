@@ -68,9 +68,13 @@
                                 <div id="div-schedule-<%= doctor.User.id %>" data-doctor-id="<%= doctor.User.id %>"
                                      class=" d-flex flex-row  flex-wrap text-decoration-none">
                                     <% if(doctor.getDataValue('schedule').length === 0){ %>
-                                        <div class="no-schedule">
+                                        <!-- <div class="no-schedule">
                                             Doctor "<%= doctor.User.name %>" does not have an appointment on
                                             <b><%= sevenDaySchedule[0] %></b>. Please select the next examination schedule.
+                                        </div> -->
+                                        <div class="no-schedule">
+                                            Doctor "<%= doctor.User.name %>" không có lịch hẹn vào
+                                            <b><%= sevenDaySchedule[0] %></b>. Vui lòng chọn lịch kiểm tra khác.
                                         </div>
                                     <% } %>
 
@@ -87,8 +91,11 @@
                                             <% } %>
 
                                             <% if( index === doctor.getDataValue('schedule').length - 1 && x.getDataValue("isDisable") === true){ %>
-                                                <div>
+                                                <!-- <div>
                                                     There are no scheduled visits in the current timeframe. Please select the next scheduled exams.
+                                                </div> -->
+                                                <div>
+                                                    Không có chuyến thăm theo lịch trình trong khung thời gian hiện tại. Vui lòng chọn các kỳ thi đã lên lịch tiếp theo.
                                                 </div>
                                             <% } %>
                                     <% }) %>
@@ -98,14 +105,14 @@
                                     <% if(doctor.getDataValue('schedule').length > 0){ %>
                                         <div class="d-flex flex-column">
                                             <div>
-                                                <span class="d-block mt-2"> Choose <i class="fa fa-hand-o-up" aria-hidden="true"></i>  and book a free consultation</span>
+                                                <span class="d-block mt-2"> Chọn <i class="fa fa-hand-o-up" aria-hidden="true"></i>  và đăng ký tư vấn miễn phí</span>
                                             </div>
                                             <div style="border-top: 1px solid #ccc" class="d-flex flex-column">
-                                                <span class="d-block pt-3 pb-1" style="text-transform: uppercase">Medical address:</span>
+                                                <span class="d-block pt-3 pb-1" style="text-transform: uppercase">Địa chỉ y tế:</span>
                                                 <span class="d-block pb-1"
                                                       style="border-bottom: 1px solid #ccc"><%= doctor.User.address %></span>
                                             </div>
-                                            <span class="d-block pt-2">Price: 50 USD</span>
+                                            <span class="d-block pt-2">Giá: 1.200.000 VND</span>
                                         </div>
                                     <% } %>
                                 </div>
@@ -146,7 +153,8 @@
     <div class="modal-dialog mw-100 w-75" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Make a medical appointment</h5>
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Make a medical appointment</h5> -->
+                <h5 class="modal-title" id="exampleModalLabel">Đặt lịch hẹn khám bệnh</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -154,7 +162,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-5" style="border-right: 1px solid #ccc;" id="infoDoctorSpe">
-                        <label class="text-label" style="padding-top: 7px">Doctor information:</label>
+                        <!-- <label class="text-label" style="padding-top: 7px">Doctor information:</label> -->
+                        <label class="text-label" style="padding-top: 7px">Thông tin bác sĩ:</label>
                         <div class="d-flex flex-row">
                             <img class="avatar-doctor-modal" id="modal-avatar-doctor-spe">
                             <div class="ml-3">
@@ -166,60 +175,64 @@
 
                         <div class="mt-4" id="doctor-address-spe">
                         </div>
-                        <div class="mt-3">Free appointment appointment</div>
-                        <div class="mt-3">Price: 50 USD</div>
+                        <div class="mt-3">Miễn phí hẹn</div>
+                        <div class="mt-3">Giá: 1.200.000 VNĐ</div>
                     </div>
                     <div class="col-7">
                         <form id="form-patient-info-spe">
                             <div class="form-group">
-                                <label for="patient-name" class="col-form-label text-label">Patient information:</label>
+                                <!-- <label for="patient-name" class="col-form-label text-label">Patient information:</label> -->
+                                <label for="patient-name" class="col-form-label text-label">Thông tin bệnh nhân:</label>
                                 <input type="text" class="form-control" id="name" name="name"
-                                       placeholder="Full name">
-                                <div class="invalid-feedback">
+                                       placeholder="Tên đầy đủ">
+                                <!-- <div class="invalid-feedback">
                                     Patient names cannot be left blank
+                                </div> -->
+                                <div class="invalid-feedback">
+                                    Tên bệnh nhân không được để trống
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender"
                                            id="selectMale" value="male" checked>
-                                    <label class="form-check-label" for="selectMale">Male</label>
+                                    <label class="form-check-label" for="selectMale">Nam</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender"
                                            id="selectFemale" value="female">
-                                    <label class="form-check-label" for="selectFemale">Female</label>
+                                    <label class="form-check-label" for="selectFemale">Nữ</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="phone" name="phone"
-                                       placeholder="Phone number">
-                                <div class="invalid-feedback"> Invalid phone number</div>
+                                       placeholder="Số điện thoại">
+                                <div class="invalid-feedback">Số điện thoại không hợp lệ</div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                                <div class="invalid-feedback">Invalid email</div>
+                                <div class="invalid-feedback">email không hợp lệ</div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="year" name="year" placeholder="Year">
+                                <input type="text" class="form-control" id="year" name="year" placeholder="Năm">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="address" name="address"
-                                       placeholder="Address">
+                                       placeholder="Địa chỉ">
                             </div>
                             <div class="form-group">
-                                <label for="description" class="col-form-label">Reason for examination:</label>
+                                <label for="description" class="col-form-label">Lý do khám:</label>
                                 <textarea class="form-control" id="description" name="description"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="extraInfo" class="col-form-label">Additional information (optional)
-                                    <span id="viewExtraInfo" class="view viewExtraInfo">(View): </span> </label>
+                                <label for="extraInfo" class="col-form-label">Thông tin bổ sung (tùy chọn)
+                                    <span id="viewExtraInfo" class="view viewExtraInfo">(Xem thêm): </span> </label>
                                 <div class="extraInfo d-none" id="divExtraInfo">
                                      <textarea class="form-control" id="breath"
-                                               placeholder="Respiratory history note (if applicable)"
+                                               placeholder="Ghi chú lịch sử hô hấp (nếu có)"
                                                name="breath"></textarea>
                                     <div class="form-group">
-                                        <label class="mt-2 col-form-label w-100">Have ever visited at (since the last 15 days):</label>
+                                        <label class="mt-2 col-form-label w-100">Đã từng ghé thăm tại (kể từ 15 ngày qua):</label>
 
                                         <% places.forEach(function(place) { %>
                                             <div class="form-check form-check-inline">
@@ -232,18 +245,18 @@
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="places"
                                                    id="selectNone" value="none" checked>
-                                            <label class="form-check-label" for="selectNone">Never visited</label>
+                                            <label class="form-check-label" for="selectNone">Chưa bao giờ ghé thăm</label>
                                         </div>
 
                                         <div class="mt-3">
-                                            <label>There are prior examinations:</label>
+                                            <label>Có các lần khám trước:</label>
                                             <div class="d-flex ">
                                                 <label class="mr-2" for="oldForms">Upload images: </label>
                                                 <input name="oldForms" id="oldForms" type="file" accept="image/*"
                                                        multiple>
                                             </div>
                                             <textarea class="form-control mt-2" id="extraOldForms"
-                                                      placeholder="Additional information, if any (doctor, place of examination, etc.)"
+                                                      placeholder="Thông tin bổ sung, nếu có (bác sĩ, nơi khám, v.v.)"
                                                       name="extraOldForms"></textarea>
                                         </div>
                                     </div>
@@ -255,9 +268,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div id="processLoading" class="process-loading d-none"> <span class="d-block mx-2"> <strong>Processing</strong></span><div class="loader"></div> </div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="btn-confirm-booking-spe">Confirm medical appointment</button>
+                <div id="processLoading" class="process-loading d-none"> <span class="d-block mx-2"> <strong>Đang xử lý</strong></span><div class="loader"></div> </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-booking-spe">Xác nhận cuộc hẹn khám bệnh</button>
             </div>
         </div>
     </div>

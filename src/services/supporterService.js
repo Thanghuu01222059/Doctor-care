@@ -197,6 +197,8 @@ let doneComment = (id) => {
     });
 };
 
+
+
 module.exports = {
     postCreatePost: postCreatePost,
     getAllPosts: getAllPosts,
@@ -205,5 +207,5 @@ module.exports = {
     getPostsPagination: getPostsPagination,
     deletePostById: deletePostById,
     putUpdatePost: putUpdatePost,
-    doneComment: doneComment
+    doneComment: doneComment,
 };
