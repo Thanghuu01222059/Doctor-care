@@ -6,22 +6,22 @@ const WIT_SERVER_TOKEN = process.env.WIT_AI_SERVER_TOKEN;
 const WEBVIEW_URL = process.env.WEBVIEW_URL;
 
 const DOCTOR_IMAGE_URL = "https://bralowmedicalgroup.com/wp-content/uploads/2018/06/blog.jpg";
-const DOCTOR_URL = "https://doctorcare-v1.herokuapp.com/";
+const DOCTOR_URL = "https://doctorcare-v1-13e9adbb5466.herokuapp.com/";
 
 const BOOKING_IMAGE_URL = "http://ipright.vn/wp-content/uploads/2014/03/36322201-procedure-word-write-on-paper-Stock-Photo-1200x545_c.jpg";
-const BOOKING_URL = "https://doctorcare-v1.herokuapp.com/";
+const BOOKING_URL = "https://doctorcare-v1-13e9adbb5466.herokuapp.com/";
 
 const COXUONGKHOP_IMAGE_URL = "https://cdn.pixabay.com/photo/2015/10/31/11/59/information-1015298_960_720.jpg";
-const COXUONGKHOP_URL = "https://doctorcare-v1.herokuapp.com/";
+const COXUONGKHOP_URL = "https://doctorcare-v1-13e9adbb5466.herokuapp.com/";
 
 const TIEUHOA_IMAGE_URL = "https://cdn.pixabay.com/photo/2015/10/31/11/59/information-1015298_960_720.jpg";
-const TIEUHOA_URL = "https://doctorcare-v1.herokuapp.com/";
+const TIEUHOA_URL = "https://doctorcare-v1-13e9adbb5466.herokuapp.com/";
 
 const INFOWEBSITE_IMAGE_URL = "https://cdn.pixabay.com/photo/2015/10/31/11/59/information-1015298_960_720.jpg";
-const INFOWEBSITE_URL = "https://doctorcare-v1.herokuapp.com/";
+const INFOWEBSITE_URL = "https://doctorcare-v1-13e9adbb5466.herokuapp.com/";
 
 const DEFAULT_IMAGE_URL = "https://www.freseniusmedicalcare.com.vn/fileadmin/_processed_/5/4/csm_SPE001_service-support-employee_7614d83ad5.jpg";
-const DEFAULT_URL = "https://doctorcare-v1.herokuapp.com/";
+const DEFAULT_URL = "https://doctorcare-v1-13e9adbb5466.herokuapp.com/";
 
 let handlePostback = (sender_psid, received_postback) => {
     return new Promise(async (resolve, reject) => {
@@ -394,7 +394,7 @@ let handleSetupBotFBPage = () => {
                 }
             ],
             "whitelisted_domains": [
-                "https://doctorcare-v1.herokuapp.com/"
+                "https://doctorcare-v1-13e9adbb5466.herokuapp.com/"
             ]
         };
 
@@ -600,32 +600,32 @@ let sendMessageReplyDoctors = (sender_psid) => {
                         "elements": [
                             {
                                 "title": "GS.TS Phạm Văn Tuấn",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/users/doctor.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/users/doctor.jpg",
                                 "subtitle": "Y học cổ truyền",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/doctor/2",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/doctor/2",
                                     "webview_height_ratio": "tall"
                                 }
                             },
 
                             {
                                 "title": "GS.TS Hoàng Đình Tùng",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/users/doctor-hoang-dinh-tung.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/users/doctor-hoang-dinh-tung.jpg",
                                 "subtitle": "Cơ xương khớp",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/doctor/4",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/doctor/4",
                                     "webview_height_ratio": "tall"
                                 }
                             },
                             {
                                 "title": "GS.TS Eric Pham",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/users/doctor-eric-pham.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/users/doctor-eric-pham.jpg",
                                 "subtitle": "Tai mũi họng",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/doctor/5",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/doctor/5",
                                     "webview_height_ratio": "tall"
                                 }
                             },
@@ -704,29 +704,29 @@ let sendMessageReplySpecialization = (sender_psid) => {
                         "elements": [
                             {
                                 "title": "TAI MŨI HỌNG",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/specializations/tai-mui-hong.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/specializations/tai-mui-hong.jpg",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/specialization/1",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/specialization/1",
                                     "webview_height_ratio": "tall"
                                 }
                             },
 
                             {
                                 "title": "THẦN KINH",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/specializations/than-kinh.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/specializations/than-kinh.jpg",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/specialization/2",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/specialization/2",
                                     "webview_height_ratio": "tall"
                                 }
                             },
                             {
                                 "title": "TIÊU HÓA",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/specializations/tieu-hoa.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/specializations/tieu-hoa.jpg",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/specialization/3",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/specialization/3",
                                     "webview_height_ratio": "tall"
                                 }
                             },
@@ -805,29 +805,29 @@ let sendMessageReplyClinics = (sender_psid) => {
                         "elements": [
                             {
                                 "title": "Phòng khám đa khoa Thu Cúc",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/clinics/phong-kham-thu-cuc.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/clinics/phong-kham-thu-cuc.jpg",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/clinic/1",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/clinic/1",
                                     "webview_height_ratio": "tall"
                                 }
                             },
 
                             {
                                 "title": "Phòng khám Meditec",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/clinics/phong-kham-meditec.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/clinics/phong-kham-meditec.jpg",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/clinic/2",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/clinic/2",
                                     "webview_height_ratio": "tall"
                                 }
                             },
                             {
                                 "title": "Phòng khám quốc tế Bảo Sơn",
-                                "image_url": "https://doctorcare-v1.herokuapp.com/images/clinics/phong-kham-bao-son.jpg",
+                                "image_url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/images/clinics/phong-kham-bao-son.jpg",
                                 "default_action": {
                                     "type": "web_url",
-                                    "url": "https://doctorcare-v1.herokuapp.com/detail/clinic/3",
+                                    "url": "https://doctorcare-v1-13e9adbb5466.herokuapp.com/detail/clinic/3",
                                     "webview_height_ratio": "tall"
                                 }
                             },
@@ -894,7 +894,7 @@ let sendMessageAllDoctors = (sender_psid) => {
         try {
             let response1 = {
                 "text": "Danh sách tất cả bác sĩ bạn xem thêm ở link bên dưới nhé:" +
-                    "\n\n 👉 https://doctorcare-v1.herokuapp.com/all-doctors  "
+                    "\n\n 👉 https://doctorcare-v1-13e9adbb5466.herokuapp.com/all-doctors  "
             };
             let response2 = {
                 "text": "Xem thêm thông tin:",
@@ -929,7 +929,7 @@ let sendMessageAllClinics = (sender_psid) => {
         try {
             let response1 = {
                 "text": "Danh sách tất cả phòng khám bạn xem thêm ở link bên dưới nhé:" +
-                    "\n\n 👉 https://doctorcare-v1.herokuapp.com/all-clinics  "
+                    "\n\n 👉 https://doctorcare-v1-13e9adbb5466.herokuapp.com/all-clinics  "
             };
             let response2 = {
                 "text": "Xem thêm thông tin:",
@@ -964,7 +964,7 @@ let sendMessageAllSpecializations = (sender_psid) => {
         try {
             let response1 = {
                 "text": "Danh sách tất cả các chuyên khoa bạn xem thêm ở link bên dưới nhé:" +
-                    "\n\n 👉 https://doctorcare-v1.herokuapp.com/all-specializations  "
+                    "\n\n 👉 https://doctorcare-v1-13e9adbb5466.herokuapp.com/all-specializations  "
             };
             let response2 = {
                 "text": "Xem thêm thông tin:",

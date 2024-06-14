@@ -355,7 +355,7 @@ let deleteSpecializationById = async (req, res) => {
 
 let getManageBotPage = async (req, res) => {
     try {
-        return res.send("Hello word. You'll need a witAI account. More info: please comment on my youtube channel.")
+        return res.send("Không kết nối được.")
         // let entities = await chatFBServie.getWitEntitiesWithExpression();
         // let entityName = await chatFBServie.getWitEntities();
         // return res.render('main/users/admins/manageBot.ejs', {
