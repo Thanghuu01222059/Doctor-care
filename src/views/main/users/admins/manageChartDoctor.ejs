@@ -26,7 +26,7 @@
         let m = new Date().getMonth() + 1;
         $.ajax({
             method: 'POST',
-            data: { month: m },
+            data: { month: month },
             url: `${window.location.origin}/doctor/manage/create-chart`,
             success: function(data) {
                 let countNotSendForms = 0;

@@ -51,7 +51,7 @@ export const transMailRemedy= {
         Sau khi bạn đã nhìn thấy văn phòng của bác sĩ <b> ${data.doctor} </b>, bạn có thể xem lại chi tiết thanh toán từ tệp đính kèm email này. </h4>
         <div>Mật khẩu giải nén file đính kèm có dạng sau: <i>Họ và tên không dấu - 3 số đầu số điện thoại - 2 số cuối năm sinh của bạn</div>
         <br>
-        <div>Ví dụ: Họ và tên: lythienqui, với số điện thoại đăng ký: 0123456789 và năm sinh: 2002, mật khẩu giải nén là: <b> lythienqui-012-02 </b> </div>
+        <div>Ví dụ: Họ và tên: Lý Thiên Qúi, với số điện thoại đăng ký: 0123456789 và năm sinh: 2002, mật khẩu giải nén là: <b> lythienqui-012-02 </b> </div>
         <br>
         <div>Trong trường hợp không nhận được file đính kèm cũng như không giải nén được, vui lòng liên hệ tổng đài hỗ trợ<b>911 911</b></div>
         <h4>Xin căm ơn !</h4>`;

@@ -187,7 +187,7 @@ let createNewPatient = (data) => {
                     //update logs
                     let logs = {
                         patientId: patient.id,
-                        content: "The patient made an appointment from the system ",
+                        content: "Bệnh nhân đặt lịch hẹn từ hệ thống ",
                         createdAt: Date.now()
                     };
 

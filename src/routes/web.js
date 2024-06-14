@@ -105,13 +105,13 @@ let initRoutes = (app) => {
     router.get('/users/manage/doctor', auth.checkLoggedIn, admin.getManageDoctor);
     router.get('/users/manage/doctor/create', auth.checkLoggedIn, admin.getCreateDoctor);
 
-    router.get('/users/manage/supporter', auth.checkLoggedIn, admin.getManageSupporter);//thêm
-    router.get('/users/manage/supporter/create', auth.checkLoggedIn, admin.getCreateSupporter);//thêm
+    // router.get('/users/manage/supporter', auth.checkLoggedIn, admin.getManageSupporter);//thêm
+    // router.get('/users/manage/supporter/create', auth.checkLoggedIn, admin.getCreateSupporter);//thêm
 
     router.post('/admin/doctor/create', auth.checkLoggedIn, admin.postCreateDoctor);
     router.get('/users/doctor/edit/:id', auth.checkLoggedIn, admin.getEditDoctor);
 
-    router.post('/admin/supporter/create', auth.checkLoggedIn, admin.postCreateDoctor);//thêm
+    // router.post('/admin/supporter/create', auth.checkLoggedIn, admin.postCreateDoctor);//thêm
 
     router.put('/admin/doctor/update-without-file', auth.checkLoggedIn, admin.putUpdateDoctorWithoutFile);
     router.put('/admin/doctor/update', auth.checkLoggedIn, admin.putUpdateDoctor);

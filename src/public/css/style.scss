@@ -104,7 +104,29 @@ body {
     }
 }
 
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff8a00, 0 0 15px #ff8a00, 0 0 20px #e52e71, 0 0 25px #e52e71, 0 0 30px #e52e71, 0 0 35px #e52e71;
+    }
+    50% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff8a00, 0 0 30px #ff8a00, 0 0 40px #e52e71, 0 0 50px #e52e71, 0 0 60px #e52e71, 0 0 70px #e52e71;
+    }
+}
 
+.highlight-text {
+    font-size: 35px; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ff5722; /* Fallback color if gradient is not supported */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+    background: linear-gradient(90deg, #ff3333, #eaff00); /* Gradient background */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make the text fill color transparent to show the gradient */
+    padding: 10px 20px; /* Add padding inside the text */
+    border: 2px solid #ff5722; /* Border around the text */
+    border-radius: 5px; /* Rounded corners for the border */
+}  
 .sec-header {
     height: 500px;
 
@@ -114,7 +136,7 @@ body {
         background-size: cover;
         background-repeat: no-repeat;
         background-image: url("../images/header-cover.jpg");
-
+        
         .header-search {
             background-color: #f7d800;
             border-radius: 20px;

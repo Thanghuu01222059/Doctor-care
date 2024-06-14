@@ -15,13 +15,13 @@ let getManageDoctor = async (req, res) => {
     });
 };
 
-let getManageSupporter = async (req, res) => {
-    let supporters = await userService.getInfoSupporters();
-    return res.render("main/users/admins/manageSupporter.ejs", {
-        user: req.user,
-        supporters: supporters,
-    });
-};//thêm
+// let getManageSupporter = async (req, res) => {
+//     let supporters = await userService.getInfoSupporters();
+//     return res.render("main/users/admins/manageSupporter.ejs", {
+//         user: req.user,
+//         supporters: supporters,
+//     });
+// };//thêm
 
 let getManageClinic = async (req, res) => {
     let clinics = await homeService.getClinics();
@@ -42,15 +42,15 @@ let getCreateDoctor = async (req, res) => {
 
 };
 
-let getCreateSupporter = async (req, res) => {
-    let clinics = await homeService.getClinics();
-    let specializations = await homeService.getSpecializations();
-    return res.render("main/users/admins/createSupporter.ejs", {
-        user: req.user,
-        clinics: clinics,
-        specializations: specializations
-    });
-};//thêm
+// let getCreateSupporter = async (req, res) => {
+//     let clinics = await homeService.getClinics();
+//     let specializations = await homeService.getSpecializations();
+//     return res.render("main/users/admins/createSupporter.ejs", {
+//         user: req.user,
+//         clinics: clinics,
+//         specializations: specializations
+//     });
+// };//thêm
 
 
 
@@ -76,26 +76,26 @@ let postCreateDoctor = async (req, res) => {
 };
 
 
-let postCreateSupporter = async (req, res) => {
-    let doctor = {
-        'name': req.body.name,
-        'phone': req.body.phone,
-        'email': req.body.email,
-        'password': req.body.password,
-        'clinicId': req.body.clinic,
-        'specializationId': req.body.specialization,
-        'address': req.body.address,
-        'avatar': 'supporter.jpg',
-        'description': req.body.description
-    };
-    try {
-        await userService.createSupporter(supporter);
-        return res.status(200).json({ message: 'Thành công' })
-    } catch (err) {
-        console.log(err);
-        return res.status(500).json({ error: err })
-    }
-};//thêm
+// let postCreateSupporter = async (req, res) => {
+//     let doctor = {
+//         'name': req.body.name,
+//         'phone': req.body.phone,
+//         'email': req.body.email,
+//         'password': req.body.password,
+//         'clinicId': req.body.clinic,
+//         'specializationId': req.body.specialization,
+//         'address': req.body.address,
+//         'avatar': 'supporter.jpg',
+//         'description': req.body.description
+//     };
+//     try {
+//         await userService.createSupporter(supporter);
+//         return res.status(200).json({ message: 'Thành công' })
+//     } catch (err) {
+//         console.log(err);
+//         return res.status(500).json({ error: err })
+//     }
+// };//thêm
 
 let getCreateClinic = (req, res) => {
     return res.render("main/users/admins/createClinic.ejs", {
@@ -465,9 +465,9 @@ module.exports = {
     getInfoStatistical: getInfoStatistical,
 
     postCreateDoctor: postCreateDoctor,
-    getManageSupporter: getManageSupporter, //thêm
-    postCreateSupporter: postCreateSupporter, //thêm
-    getCreateSupporter: getCreateSupporter, //thêm
+    // getManageSupporter: getManageSupporter, //thêm
+    // postCreateSupporter: postCreateSupporter, //thêm
+    // getCreateSupporter: getCreateSupporter, //thêm
     postCreateClinic: postCreateClinic,
     postCreateClinicWithoutFile: postCreateClinicWithoutFile,
 

@@ -76,6 +76,21 @@ body {
   .next-custom:hover {
     opacity: 1; }
 
+  .highlight-text {
+      font-size: 35px; /* Increase font size */
+      font-weight: bold; /* Make the text bold */
+      color: #ff5722; /* Fallback color if gradient is not supported */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+      background: linear-gradient(90deg, #ff3333, #eaff00); /* Gradient background */
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent; /* Make the text fill color transparent to show the gradient */
+      padding: 10px 20px; /* Add padding inside the text */
+      border: 2px solid #ff5722; /* Border around the text */
+      border-radius: 5px; /* Rounded corners for the border */
+  }  
+  
 .sec-header {
   height: 500px; }
   .sec-header .img-header {
@@ -83,7 +98,8 @@ body {
     background-color: #fff;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../images/header-cover.jpg"); }
+    background-image: url("../images/header-cover.jpg");
+   }
     .sec-header .img-header .header-search {
       background-color: #f7d800;
       border-radius: 20px;

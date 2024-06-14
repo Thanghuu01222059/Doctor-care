@@ -719,7 +719,7 @@ function loadNewPatientsForSupporter() {
                     <td> ${patient.email}     </td>
                     <td> ${convertStringToDateClient(patient.updatedAt)} </td>
                     <td> 
-                    <button   data-patient-id="${patient.id}"  class="ml-3 btn btn-primary btn-history-cancel-patient">History</button>
+                    <button   data-patient-id="${patient.id}"  class="ml-3 btn btn-primary btn-history-cancel-patient">Lịch sử</button>
                     </td>
                 </tr>
                 `;
@@ -863,7 +863,7 @@ function addNewRowTableCanceled(patient) {
                     <td> ${patient.email}     </td>
                     <td> ${convertStringToDateClient(patient.updatedAt)} </td>
                     <td> 
-                    <button   data-patient-id="${patient.id}"  class="ml-3 btn btn-primary btn-history-cancel-patient">History</button>
+                    <button   data-patient-id="${patient.id}"  class="ml-3 btn btn-primary btn-history-cancel-patient">Lịch sử</button>
                     </td>
                 </tr>
                
@@ -929,11 +929,11 @@ function handleCancelBtn() {
                 alert('Please fill in more information for another reason');
                 return;
             }
-            text = `Other reason: ${$('#otherReason').val()} `;
+            text = `Lý do khác: ${$('#otherReason').val()} `;
         } else if (data.reasonCancel === 'reason2') {
-            text = 'The patient canceled the schedule';
+            text = 'Bệnh nhân hủy lịch';
         } else {
-            text = 'Spam clinic appointment, not real'
+            text = 'Cuộc hẹn khám bệnh thư rác, không có thật'
         }
 
         let patientId = $('#btnCancelBookingPatient').attr('data-patient-id');
@@ -1204,7 +1204,7 @@ function statisticalAdmin(month) {
         url: `${window.location.origin}/admin/statistical`,
         data: { month: month },
         success: function(data) {
-            $('#sumPatient').text(data.patients.count);
+            $('#sumPatient').text(data.patients.count); 
             $('#sumDoctor').text(data.doctors.count);
             $('#sumPost').text(data.posts.count);
 

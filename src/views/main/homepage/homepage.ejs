@@ -19,11 +19,16 @@
                 <div class="home-nav">
                     <div class="nav-item">
                         <% if(user){%>
-                            <!-- <a href="/users" target="_blank">Dashboard</a> -->
                             <a href="/users" target="_blank">Bảng điều khiển</a>
-
                             <%} else {%>
                                 <a href="/login">Đăng nhập</a>
+                            <% }%>
+                    </div>
+                    <div class="nav-item">
+                        <% if(user){%>
+                            <a href="/logout">Đăng xuất</a>
+                            <%} else {%>
+                                <!-- <a href="/register">Đăng ký</a> -->
                             <% }%>
                     </div>
                 </div>
@@ -64,7 +69,7 @@
 <section class="sec-header d-flex flex-column">
     <div class="img-header d-flex flex-column mt-3 ">
         <!-- <div class="text-center mt-5"><span style="font-size: 25px">SPECIALIZED EXPLORE BOOKING PLATFORM</span></div> -->
-        <div class="text-center mt-5"><span style="font-size: 25px">NỀN TẢNG ĐẶT LỊCH KHÁM PHÁ CHUYÊN DỤNG</span></div>
+        <div class="text-center mt-5"><span class="highlight-text">NỀN TẢNG ĐẶT LỊCH KHÁM BỆNH CHUYÊN DỤNG</span></div>
         <div class="header-search align-self-center justify-content-center mt-5">
             <i class="fa fa-search"></i>
             <label for="input-search"></label>
@@ -155,7 +160,7 @@
                                  alt="image bla bla">
                             <h3 style="color: black"><%= doctor.name %></h3>
                             <h4 style="color: black"><%= doctor.getDataValue('specializationName') %></h4>
-                            <span title="Counting the number of patients have been booked" style="color: #0056b3"> <%= doctor.getDataValue('countBooking') %> bệnh nhân (đã đặt trước)</span>
+                            <span title="Đếm số lượng bệnh nhân đã được đặt lịch" style="color: #0056b3"> <%= doctor.getDataValue('countBooking') %> bệnh nhân (đã đặt trước)</span>
                         </div>
                     </div>
                 </a>
@@ -166,9 +171,9 @@
 <section class="sec-posts">
     <div class="sec-fields-title mx-auto d-flex my-3">
         <!-- <h2 class="">Handbooks</h2> -->
-        <h2 class="">Sổ tay</h2>
+        <h2 class="">Cẩm nang</h2>
         <!-- <a class="flex-grow-1 my-auto text-decoration-none" href="/all-posts"><span class="d-block text-decoration-none">All posts</span></a> -->
-        <a class="flex-grow-1 my-auto text-decoration-none" href="/all-posts"><span class="d-block text-decoration-none">Tất cả sổ tay</span></a>
+        <a class="flex-grow-1 my-auto text-decoration-none" href="/all-posts"><span class="d-block text-decoration-none">Tất cả bài viết</span></a>
     </div>
     <div class="section-slide">
         <div class="slider slider-nav-posts">
@@ -176,7 +181,7 @@
                 <a href="/detail/post/<%= post.id %>" class="text-decoration-none" style="outline: none">
                     <div class="d-flex flex-row slide-post">
                         <div class="img-post">
-                            <img src="https://cdn.bookingcare.vn/fr/w500/2018/06/18/113541benh-vien-bao-son.jpg"
+                            <img src="https://tse4.mm.bing.net/th?id=OIP.lLc6hCx5jJ99vGZhdKkVCgHaFj&pid=Api&P=0&h=220"
                                  alt="image bla bla">
                         </div>
                         <div class="content-post">
@@ -207,7 +212,7 @@
         <a href="/contact" class="mt-5 pd-3 contact-admin text-decoration-none">Liên hệ hợp tác</a>
     </div>
     <div class="col-7 d-flex justify-content-end" style="padding-top: 5px">
-        <iframe width="500" height="290" src="https://www.youtube.com/embed/25PzpAdndSs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="500" height="290" src="https://www.youtube.com/embed/OASGscJQXp0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
 
@@ -229,7 +234,7 @@
                     <% specializations.forEach(function(x) { %>
                         <div class="col-12 col-spe pl-3"><a href="/detail/specialization/<%= x.id %>" class="text-decoration-none"><%= x.name %> </a></div>
                         <% }) %>
-                        <div class="col-12 col-spe pl-3"><a href="/all-specializations" class="text-decoration-none">View all</a></div>
+                        <div class="col-12 col-spe pl-3"><a href="/all-specializations" class="text-decoration-none"> >> Xem tất cả</a></div>
 
                 </div>
             </div>
@@ -256,7 +261,7 @@
                     <% clinics.forEach(function(x) { %>
                         <div class="col-12 col-spe pl-3"><a href="/detail/clinic/<%= x.id %>" class="text-decoration-none"><%= x.name %> </a></div>
                     <% }) %>
-                        <div class="col-12 col-spe pl-3"><a href="/all-clinics" class="text-decoration-none">View all</a></div>
+                        <div class="col-12 col-spe pl-3"><a href="/all-clinics" class="text-decoration-none"> >> Xem tất cả</a></div>
 
                 </div>
             </div>
@@ -285,7 +290,7 @@
                     <% }) %>
                 </div>
                 <div class="row all-doctors-body px-2">
-                        <div class="col-12 col-spe pl-3"><a href="/all-doctors %>" class="text-decoration-none">View all</a></div>
+                        <div class="col-12 col-spe pl-3"><a href="/all-doctors %>" class="text-decoration-none"> >> Xem tất cả</a></div>
 
                 </div>
             </div>

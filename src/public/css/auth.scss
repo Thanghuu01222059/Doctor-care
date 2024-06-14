@@ -9,6 +9,22 @@ body {
 .invalid-feedback {
     color: red;
 }
+
+.highlight-text {
+    font-size: 35px; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ff5722; /* Fallback color if gradient is not supported */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+    background: linear-gradient(90deg, #ff3333, #eaff00); /* Gradient background */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make the text fill color transparent to show the gradient */
+    padding: 10px 20px; /* Add padding inside the text */
+    border: 2px solid #ff5722; /* Border around the text */
+    border-radius: 5px; /* Rounded corners for the border */
+}  
+
 .login {
     display: flex;
     align-items: center;
@@ -27,6 +43,8 @@ body {
                 opacity: 1;
             }
         }
+
+        
         .text-login {
             display: block;
             text-transform: uppercase;

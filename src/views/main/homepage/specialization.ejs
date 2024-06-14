@@ -50,13 +50,13 @@
                                 <div class="intro-doctor-spe">
                                     <div class="doctor-name"><%= doctor.User.name %></div>
                                     <div class="doctor-address"><%= doctor.User.address %></div>
-                                    <div><a href="/detail/doctor/<%= doctor.User.id %>">More info...</a></div>
+                                    <div><a href="/detail/doctor/<%= doctor.User.id %>">Thêm thông tin...</a></div>
                                 </div>
                             </div>
                             <div class="right-content col-7">
                                 <div>
                                     <div class="row header-booking">
-                                        <label for="day-book-spe" class="label-booking">SCHEDULE EXAMINATION:</label>
+                                        <label for="day-book-spe" class="label-booking">LỊCH KHÁM:</label>
                                     </div>
                                     <select id="day-book-spe" class="form-control doctor-schedule-spe"
                                             data-doctor="<%= doctor.User.id %>">
@@ -121,15 +121,15 @@
                     <% }) %>
                 </div>
                 <div class="col-4 mt-3">
-                   INTRODUCTION:
+                   GIỚI THIỆU
                     <hr>
-                    <div>  THE SPECIALIST : <%= specialization.name %></div>
+                    <div>  CHUYÊN KHOA: <%= specialization.name %></div>
                     <% if(post) { %>
                         <div class="content-description-spe pt-2"><%- post.contentHTML %> </div>
                     <% } %>
                     <hr>
                     <div class="spe-category">
-                        OTHER SPECIALISTS:
+                        CHUYÊN KHÓA KHÁC:
                         <ul>
                             <% listSpecializations.forEach(function(spe) { %>
                                 <% if(spe.id !== specialization.id ){ %>

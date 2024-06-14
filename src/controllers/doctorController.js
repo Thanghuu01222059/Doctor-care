@@ -23,7 +23,7 @@ let getSchedule = async (req, res) => {
     try {
         let threeDaySchedules = [];
         for (let i = 0; i < 3; i++) {
-            let date = moment(new Date()).add(i, 'days').locale('en').format('DD/MM/YYYY');
+            let date = moment(new Date()).add(i, 'days').locale('vi').format('DD/MM/YYYY');
             threeDaySchedules.push(date);
         }
         let data = {

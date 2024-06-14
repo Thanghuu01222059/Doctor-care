@@ -576,7 +576,7 @@ function handleSearchHomepage() {
                     if (data.clinics.length === 0 && data.specializations.length === 0 && data.doctors.length === 0) {
                         html += `
                          <div class="child-info">
-                               No search results found
+                               Không tìm thấy kết quả tìm kiếm
                         </div>
                         `;
                     }
