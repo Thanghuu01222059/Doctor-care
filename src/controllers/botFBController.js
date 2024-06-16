@@ -2,9 +2,9 @@ import chatFBService from "./../services/chatFBService";
 import request from "request";
 
 require('dotenv').config();
-
+let VERIFY_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 let getWebhookFB = (req, res) => {
-    let VERIFY_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+    
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
     let challenge = req.query['hub.challenge'];
@@ -23,26 +23,34 @@ let postWebhookFB =  (req, res) => {
     if (body.object === 'page') {
         body.entry.forEach(function(entry) {
 
-            if (entry.standby) {
-                //if user's message is "back" or "exit", return the conversation to the bot
-                let webhook_standby = entry.standby[0];
-                if(webhook_standby && webhook_standby.message){
-                    if (webhook_standby.message.text === "back" || webhook_standby.message.text === "exit") {
-                        // call function to return the conversation to the primary app
-                        // chatbotService.passThreadControl(webhook_standby.sender.id, "primary");
-                        chatFBService.takeControlConversation(webhook_standby.sender.id);
-                    }
-                }
+            // if (entry.standby) {
+            //     //if user's message is "back" or "exit", return the conversation to the bot
+            //     let webhook_standby = entry.standby[0];
+            //     if(webhook_standby && webhook_standby.message){
+            //         if (webhook_standby.message.text === "back" || webhook_standby.message.text === "exit") {
+            //             // call function to return the conversation to the primary app
+            //             // chatbotService.passThreadControl(webhook_standby.sender.id, "primary");
+            //             chatFBService.takeControlConversation(webhook_standby.sender.id);
+            //         }
+            //     }
 
-                return;
-            }
+            //     return;
+            // }
+            // let webhook_event = entry.messaging[0];
+            // let sender_psid = webhook_event.sender.id;
+            // if (webhook_event.message) {
+            //     chatFBService.handleMessage(sender_psid, webhook_event.message);
+            // } else if (webhook_event.postback) {
+            //     chatFBService.handlePostback(sender_psid, webhook_event.postback);
+            // }
+
+            // Gets the body of the webhook event
             let webhook_event = entry.messaging[0];
+            console.log(webhook_event);
+
+            // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
-            if (webhook_event.message) {
-                chatFBService.handleMessage(sender_psid, webhook_event.message);
-            } else if (webhook_event.postback) {
-                chatFBService.handlePostback(sender_psid, webhook_event.postback);
-            }
+            console.log('Sender PSID: ' + sender_psid);
 
         });
 
@@ -91,6 +99,21 @@ let setInfoBookingMessenger = async (req, res) =>{
         return res.status(500).json(e);
     }
 };
+
+// Handles messages events
+function handleMessage(sender_psid, received_message) {
+
+}
+
+// Handles messaging_postbacks events
+function handlePostback(sender_psid, received_postback) {
+
+}
+
+// Sends response messages via the Send API
+function callSendAPI(sender_psid, response) {
+  
+}
 
 module.exports = {
     getWebhookFB: getWebhookFB,
