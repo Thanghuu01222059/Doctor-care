@@ -2,9 +2,9 @@ import chatFBService from "./../services/chatFBService";
 import request from "request";
 
 require('dotenv').config();
-let VERIFY_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+
 let getWebhookFB = (req, res) => {
-    
+    let VERIFY_TOKEN = process.env.PAGE_ACCESS_TOKEN;
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
     let challenge = req.query['hub.challenge'];
